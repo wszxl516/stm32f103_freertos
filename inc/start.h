@@ -12,6 +12,6 @@ extern unsigned long _edata;
 extern unsigned long _sbss;
 extern unsigned long _ebss;
 extern void _estack(void);
-void Reset_Handler(void);
+void start(void);
 
 #endif //__COMMON__

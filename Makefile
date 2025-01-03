@@ -6,7 +6,7 @@ PROJROOT=$(CURDIR)
 
 # object files
 BUILD_DIR=$(PROJROOT)/build
-STARTUP= $(BUILD_DIR)/start.o $(BUILD_DIR)/system_stm32f10x.o 
+STARTUP= $(BUILD_DIR)/start.o $(BUILD_DIR)/system_stm32f10x.o $(BUILD_DIR)/entry.o
 OBJS= $(STARTUP) $(BUILD_DIR)/main.o $(BUILD_DIR)/uart.o $(BUILD_DIR)/printf.o 
 OBJS+= $(BUILD_DIR)/stm32f10x_gpio.o \
 	$(BUILD_DIR)/stm32f10x_rcc.o \
@@ -53,6 +53,7 @@ RTOSCONFIG=$(SRCROOT)/config
 
 # Search path for standard files
 vpath %.c $(SRCROOT)
+vpath %.s $(SRCROOT)
 
 # Search path for perpheral library
 vpath %.c $(CORE)

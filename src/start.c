@@ -13,14 +13,13 @@ void assert_failed(uint8_t *file, uint32_t line) {
   while (1)
     ;
 }
-
+extern void Reset_Handler();
 void __attribute__((weak)) __libc_init_array(void) {}
 void main(void) __attribute__((weak, alias("default_handler")));
 
-void Reset_Handler(void) {
+void start(void) {
 
   unsigned long *src, *dst;
-
   src = &_sidata;
   dst = &_sdata;
 
@@ -131,7 +130,6 @@ void DMA2_Channel5_IRQHandler(void)
 __attribute__((section(".isr_vector")))
 
 void (*const g_pfnVectors[])(void) = {
-
     _estack,
     Reset_Handler,
     NMI_Handler,
